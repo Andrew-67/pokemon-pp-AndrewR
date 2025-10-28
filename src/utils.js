@@ -22,7 +22,8 @@ export const sortByName = (pokemonList) => {
   // TODO: Implement this function
   // Hint: Use array sort method
   // Remember: Don't mutate the original array!
-  return [...pokemonList].sort((a, b) => a.name.localeCompare(b.name));
+  // return [...pokemonList].sort((a, b) => a.name.localeCompare(b.name));
+  return structuredClone(pokemonList).sort((a, b) => a.name.localeCompare(b.name));
 };
 
 export const calculateAverageHP = (pokemonList) => {
