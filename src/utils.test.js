@@ -58,8 +58,27 @@ describe("getPokemonNames", () => {
 
 describe("getStrongestPokemon", () => {
   test("should return Pokemon with highest attack", () => {
-    const result = getStrongestPokemon(testPokemon);
-    expect(result.name).toBe("Pikachu"); // Pikachu has 55 attack
+    const INPUT = [
+      { name: "PokemonA", attack: 70 },
+      { name: "PokemonB", attack: 85 }, // Highest attack
+      { name: "PokemonD", attack: 60 },
+    ];
+    const EXPECTED_OUTPUT = [{ name: "PokemonB", attack: 85 }];
+    const actualOutput = getStrongestPokemon(INPUT);
+    expect(actualOutput).toEqual(EXPECTED_OUTPUT);
+  });
+  test("Return when multiple Pokemon have same highest attack", () => {
+    const testData = [
+      { name: "A", attack: 50 },
+      { name: "B", attack: 70 },
+      { name: "C", attack: 70 },
+    ];
+    const should = [
+      {name: "B", attack: 70 },
+      {name: "C", attack: 70 },
+    ];
+    const result = getStrongestPokemon(testData);
+    expect(result).toEqual(should);
   });
 });
 
