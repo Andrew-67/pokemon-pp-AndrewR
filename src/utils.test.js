@@ -24,13 +24,15 @@ const testPokemon = [
 
 describe("filterByType", () => {
   test("should return only fire type Pokemon", () => {
-    const result = filterByType(testPokemon, "fire");
+    const TYPE = "fire";
+    const result = filterByType(testPokemon, TYPE);
     expect(result.length).toBe(1);
     expect(result[0].name).toBe("Charmander");
   });
 
   test("should return only water type Pokemon", () => {
-    const result = filterByType(testPokemon, "water");
+    const TYPE = "water";
+    const result = filterByType(testPokemon, TYPE);
     expect(result.length).toBe(1);
     expect(result[0].name).toBe("Squirtle");
   });
@@ -62,8 +64,30 @@ describe("getStrongestPokemon", () => {
 });
 
 describe("sortByName", () => {
+  test("Return Pokemon sorted alphabetically by name", () => {
   // TODO: Write test to verify Pokemon are sorted alphabetically
+  const testPokemon = [
+    {name: "Bulbasaur" },
+    {name: "Charmander" },
+    {name: "Squirtle" },
+    {name: "Pikachu" },
+  ];
   // TODO: Write test to verify original array is not modified (immutability)
+  const result = sortByName(testPokemon);
+  expect(result).toEqual([
+    {name: "Bulbasaur" },
+    {name: "Charmander" },
+    {name: "Pikachu" },
+    {name: "Squirtle" },
+  ]);
+  // Verify original array is not modified
+  expect(testPokemon).toEqual([
+    {name: "Bulbasaur" },
+    {name: "Charmander" },
+    {name: "Squirtle" },
+    {name: "Pikachu" },
+  ]);
+  });
 });
 
 describe("calculateAverageHP", () => {
